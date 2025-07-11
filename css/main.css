@@ -15,37 +15,52 @@ body {
 
 .guessOne {
     display: flex;
-    gap: 30px;
+    gap: 10px;
     margin-bottom: 15px;
-    font-size: 45px;
 }
 .guessTwo {
     display: flex;
-    gap: 30px;
+    gap: 10px;
     margin-bottom: 15px;
-    font-size: 45px;
 }
 .guessThree {
     display: flex;
-    gap: 30px;
+    gap: 10px;
     margin-bottom: 15px;
-    font-size: 45px;
 }
 .guessFour {
     display: flex;
-    gap: 30px;
+    gap: 10px;
     margin-bottom: 15px;
-    font-size: 45px;
 }
 .guessFive {
     display: flex;
-    gap: 30px;
+    gap: 10px;
     margin-bottom: 15px;
-    font-size: 45px;
 }
 .guessSix {
     display: flex;
-    gap: 30px;
+    gap: 10px;
     margin-bottom: 15px;
-    font-size: 45px;
+}
+
+.guessLetter {
+    height: 50px;
+    width: 50px;
+    border: 3px solid black;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    justify-content: center;
+}
+
+.keyboardLetter, .delete {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 55px;
+    margin: 5px;
+    border: 2px solid black;
+    border-radius: 3px;
 }
