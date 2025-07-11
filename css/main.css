@@ -13,38 +13,38 @@ body {
     align-items: center;
 }
 
-.guessOne {
+.guess-one {
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
 }
-.guessTwo {
+.guess-two {
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
 }
-.guessThree {
+.guess-three {
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
 }
-.guessFour {
+.guess-four {
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
 }
-.guessFive {
+.guess-five {
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
 }
-.guessSix {
+.guess-six {
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
 }
 
-.guessLetter {
+.guess-letter {
     height: 50px;
     width: 50px;
     border: 3px solid black;
@@ -52,6 +52,7 @@ body {
     align-items: center;
     font-size: 30px;
     justify-content: center;
+    text-transform: uppercase;
 }
 
 .keyboardLetter, .delete {
@@ -63,4 +64,18 @@ body {
     margin: 5px;
     border: 2px solid black;
     border-radius: 3px;
+    cursor: pointer;
+    background-color: #818384;
+}
+
+.delete {
+    width: 100px;
+}
+
+.keyboardLetter:nth-child(11){
+    margin-left: 30px ;
+}
+
+.keyboardetter:nth-child(20){
+    margin-left: 60px;
 }
