@@ -16,6 +16,7 @@ let currentRow = 0
 /*------------------------ Cached Element References ------------------------*/
 const letterEl = document.querySelectorAll(".guess-letter")
 const keyboardLetterEl = document.querySelectorAll(".keyboardLetter")
+const deleteBtnEl = document.querySelector(".delete")
 /*-------------------------------- Functions --------------------------------*/
 function addLetter(letterEl){
     console.log(letterEl.textContent)
@@ -27,12 +28,27 @@ function addLetter(letterEl){
         }
     }
 }
+
+function removeLetter(){
+    for (let i = guesses[currentRow].length - 1; i >= 0; i--){
+        console.log(i)
+        if (guesses[currentRow][i] !== ''){
+            guesses[currentRow][i] = ''
+            console.log(guesses[currentRow])
+            break
+        }
+    }
+}
+
 console.log(guesses)
 function render(){}
 /*----------------------------- Event Listeners -----------------------------*/
 keyboardLetterEl.forEach(letterEl => {
     letterEl.addEventListener('click', () => addLetter(letterEl))
 });
+
+deleteBtnEl.addEventListener('click',removeLetter)
 }
+
 
 document.addEventListener('DOMContentLoaded',init)
