@@ -30,7 +30,7 @@ body {
     text-transform: uppercase;
 }
 
-.keyboardLetter, .delete {
+.keyboardLetter, .delete, .submit {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -53,4 +53,16 @@ body {
 
 .keyboardetter:nth-child(20){
     margin-left: 60px;
+}
+
+.correct-letter{
+    background-color: rgb(16, 173, 16);
+}
+
+.present-letter{
+    background-color: rgb(168, 168, 14);
+}
+
+.absent-letter{
+    background-color: rgb(58, 58, 58) ;
 }
