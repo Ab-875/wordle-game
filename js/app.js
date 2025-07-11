@@ -37,6 +37,18 @@ function addLetter(letterEl){
     render()
 }
 
+function addLetterKeyboard(keyLetter){
+    console.log(keyLetter.textContent)
+    for (let i = 0; i < guesses.length; i++){
+        if (guesses[currentRow][i] === ''){
+            guesses[currentRow][i] = keyLetter
+            console.log(guesses[currentRow])
+            break
+        }
+    }
+    render()
+}
+
 function removeLetter(){
     for (let i = guesses[currentRow].length - 1; i >= 0; i--){
         if (guesses[currentRow][i] !== ''){
@@ -94,6 +106,21 @@ function checkGuess(){
     currentRow++
 }
 
+function handleKeyPress(event){
+    const keyLetter = event.key.toUpperCase();
+
+    if (/^[A-Z]$/.test(keyLetter)){
+        addLetterKeyboard(keyLetter)
+    }
+
+    else if (event.keyLetter === 'Backspace'){
+        removeLetter()
+    }
+    else if (event.keyLetter === 'Enter') {
+        checkGuess
+    }
+}
+
 function render(){
     for (let i = 0; i < guesses[currentRow].length; i++){
         const guessLetterId = `${currentRow}-${i}`
@@ -110,6 +137,7 @@ keyboardLetterEl.forEach(letterEl => {
 
 deleteBtnEl.addEventListener('click',removeLetter)
 submitBtnEl.addEventListener('click',checkGuess)
+document.addEventListener('keydown', handleKeyPress)
 }
 
 
