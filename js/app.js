@@ -63,14 +63,30 @@ function checkGuess(){
 
         boxEl.classList.remove('correct-letter','present-letter','absent-letter')
 
+        const keyEl = document.querySelector(`.keyboardLetter[id="${guessLetter}"]`)
+
         if (guessLetter === correctLetter){
             boxEl.classList.add('correct-letter')
+            if(keyEl && !keyEl.classList.contains('correct-letter')){
+            keyEl.classList.remove('present-letter','absent-letter')
+            keyEl.classList.add('correct-letter')
+            }
             console.log(`${guessLetter}: green`)
         } else if (targetchar.includes(guessLetter)){
+
             boxEl.classList.add('present-letter')
+
+            if(keyEl && !keyEl.classList.contains('correct-letter') && !keyEl.classList.contains('present-letter')){
+                keyEl.classList.remove('absent-letter')
+                keyEl.classList.add('present-letter')
+            }
+            boxEl.classList.remove()
             console.log(`${guessLetter}: yellow`)
         } else {
             boxEl.classList.add('absent-letter')
+            if(keyEl && !keyEl.classList.contains('correct-letter') && !keyEl.classList.contains('present-letter' && !keyEl.classList.contains('absent-letter'))){
+                keyEl.classList.add('absent-letter')
+            }
             console.log(`${guessLetter}: absent`)
         }
     }
