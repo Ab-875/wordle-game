@@ -58,11 +58,19 @@ function checkGuess(){
         const guessLetter = guess[i]
         const correctLetter = targetchar[i]
 
+        const guessLetterId = `${currentRow}-${i}`
+        const boxEl = document.getElementById(guessLetterId)
+
+        boxEl.classList.remove('correct-letter','present-letter','absent-letter')
+
         if (guessLetter === correctLetter){
+            boxEl.classList.add('correct-letter')
             console.log(`${guessLetter}: green`)
         } else if (targetchar.includes(guessLetter)){
+            boxEl.classList.add('present-letter')
             console.log(`${guessLetter}: yellow`)
         } else {
+            boxEl.classList.add('absent-letter')
             console.log(`${guessLetter}: absent`)
         }
     }
