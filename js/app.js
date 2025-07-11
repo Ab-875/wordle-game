@@ -27,21 +27,30 @@ function addLetter(letterEl){
             break
         }
     }
+    render()
 }
 
 function removeLetter(){
     for (let i = guesses[currentRow].length - 1; i >= 0; i--){
-        console.log(i)
         if (guesses[currentRow][i] !== ''){
             guesses[currentRow][i] = ''
             console.log(guesses[currentRow])
             break
         }
     }
+    render()
 }
 
 console.log(guesses)
-function render(){}
+function render(){
+    for (let i = 0; i < guesses[currentRow].length; i++){
+        const guessLetterId = `${currentRow}-${i}`
+        const boxEl = document.getElementById(guessLetterId)
+        boxEl.textContent = guesses[currentRow][i]
+    }
+}
+
+render()
 /*----------------------------- Event Listeners -----------------------------*/
 keyboardLetterEl.forEach(letterEl => {
     letterEl.addEventListener('click', () => addLetter(letterEl))
