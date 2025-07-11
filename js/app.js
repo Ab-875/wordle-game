@@ -26,7 +26,9 @@ const deleteBtnEl = document.querySelector(".delete")
 const submitBtnEl = document.querySelector(".submit")
 /*-------------------------------- Functions --------------------------------*/
 function addLetter(letterEl){
-    console.log(letterEl.textContent)
+    if (winner === true){
+        return
+    }
     for (let i = 0; i < guesses.length; i++){
         if (guesses[currentRow][i] === ''){
             guesses[currentRow][i] = letterEl.textContent
@@ -38,7 +40,9 @@ function addLetter(letterEl){
 }
 
 function addLetterKeyboard(keyLetter){
-    console.log(keyLetter.textContent)
+    if (winner === true){
+        return
+    }
     for (let i = 0; i < guesses.length; i++){
         if (guesses[currentRow][i] === ''){
             guesses[currentRow][i] = keyLetter
@@ -102,7 +106,7 @@ function checkGuess(){
             console.log(`${guessLetter}: absent`)
         }
     }
-
+    checkWinCondition()
     currentRow++
 }
 
@@ -117,7 +121,20 @@ function handleKeyPress(event){
         removeLetter()
     }
     else if (event.keyLetter === 'Enter') {
-        checkGuess
+        checkGuess()
+    }
+}
+
+function checkWinCondition(){
+    const guessedWord = guesses[currentRow].join('')
+
+    if (guessedWord === target) {
+        winner = true
+        console.log(winner)
+    }
+    if (currentRow === 6 && !winner){
+        winner = false
+        console.log(winner)
     }
 }
 
@@ -129,7 +146,6 @@ function render(){
     }
 }
 
-render()
 /*----------------------------- Event Listeners -----------------------------*/
 keyboardLetterEl.forEach(letterEl => {
     letterEl.addEventListener('click', () => addLetter(letterEl))
