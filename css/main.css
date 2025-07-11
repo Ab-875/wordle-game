@@ -13,32 +13,7 @@ body {
     align-items: center;
 }
 
-.guess-one {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-.guess-two {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-.guess-three {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-.guess-four {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-.guess-five {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-.guess-six {
+.guess-row {
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
