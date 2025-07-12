@@ -9,7 +9,30 @@
 </head>
 <body>
     <h1>Wordle</h1>
-
+    <div>
+        <button class="how-button">How to Play</button>
+        <div id="tutorial" class="hidden">
+            <div>
+                <h2>How to Play</h2>
+                <p>Try to Guess the Unknown word in 6 attempts</p>
+                <p>The color of the boxes will change to show how close your guess was to the word</p>
+                <ul>
+                    <li>
+                        <p>Green: The letter is correct and is in the right position</p>
+                    </li>
+                    <li>
+                        <p>Yellow: The letter is correct but is not in the correct position</p>
+                    </li>
+                    <li>
+                        <p>Gray: The letter is not present</p>
+                    </li>
+                </ul>
+                <p>Press reset to play again with a different target word</p>
+                <button id="close-tutorial">Close</button>
+            </div>
+        </div>
+    </div>
+    <p id="message"></p>
     <div class="guess-row">
         <div class="guess-letter" id="0-0"></div>
         <div class="guess-letter" id="0-1"></div>
@@ -87,6 +110,7 @@
             <div class="keyboardLetter" id="N">N</div>
             <div class="keyboardLetter" id="M">M</div>
             <div class="delete">backspace</div>
+            <div class="keyboardLetter" id="playAgain">reset</div>
         </div>
     </div>
 </body>

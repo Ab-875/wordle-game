@@ -18,12 +18,15 @@ const wordsList = [
 /*---------------------------- Variables (state) ----------------------------*/
 let currentRow = 0
 let winner = false
-
+let message = ''
 /*------------------------ Cached Element References ------------------------*/
-const letterEl = document.querySelectorAll(".guess-letter")
 const keyboardLetterEl = document.querySelectorAll(".keyboardLetter")
 const deleteBtnEl = document.querySelector(".delete")
 const submitBtnEl = document.querySelector(".submit")
+const howBtnEl = document.querySelector('.how-button')
+const tutorialEl = document.getElementById('tutorial')
+const closeTutorialBtnEl = document.getElementById('close-tutorial')
+const resetBtnEl = document.getElementById('playAgain')
 /*-------------------------------- Functions --------------------------------*/
 function addLetter(letterEl){
     if (winner === true){
@@ -68,6 +71,8 @@ function checkGuess(){
     const targetchar = target.split('')
     const guess = guesses[currentRow]
     if (guess.includes('')){
+        message = 'Fill out the entire row'
+        document.getElementById('message').textContent = message
         return
     }
     for (let i = 0; i < targetchar.length; i++){
@@ -106,6 +111,8 @@ function checkGuess(){
             console.log(`${guessLetter}: absent`)
         }
     }
+    message = ''
+    document.getElementById('message').textContent = message
     checkWinCondition()
     currentRow++
 }
@@ -129,13 +136,44 @@ function checkWinCondition(){
     const guessedWord = guesses[currentRow].join('')
 
     if (guessedWord === target) {
+        message = `You guessed the word correctly! it took you ${currentRow+1} attempts`
+        document.getElementById('message').textContent = message
         winner = true
         console.log(winner)
     }
-    if (currentRow === 6 && !winner){
+    if (currentRow === 5 && !winner){
+        message = `You ran out of attempts, the word was ${target}`
+        document.getElementById('message').textContent = message
         winner = false
         console.log(winner)
     }
+}
+
+function displayTutorial(){
+    tutorialEl.classList.remove('hidden')
+}
+
+function removeTutorial(){
+    tutorialEl.classList.add('hidden')
+}
+
+function playAgain(){
+    currentRow = 0
+    winner = false 
+    for (let i = 0; i < guesses.length; i++){
+        for (let j = 0; j < guesses[i].length; j++){
+            guesses[i][j] = ''
+        }
+    }
+    console.log(guesses)
+    document.querySelectorAll('.guess-letter').forEach(element => {
+        element.textContent = ''
+        element.className = 'guess-letter'
+    })
+
+    keyboardLetterEl.forEach(element => {
+        element.classList.remove('correct-letter', 'present-letter', 'absent-letter')
+    })
 }
 
 function render(){
@@ -154,6 +192,9 @@ keyboardLetterEl.forEach(letterEl => {
 deleteBtnEl.addEventListener('click',removeLetter)
 submitBtnEl.addEventListener('click',checkGuess)
 document.addEventListener('keydown', handleKeyPress)
+resetBtnEl.addEventListener('click',playAgain)
+howBtnEl.addEventListener('click',displayTutorial)
+closeTutorialBtnEl.addEventListener('click',removeTutorial)
 }
 
 
