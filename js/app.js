@@ -496,6 +496,7 @@ let winner = false
 let message = ''
 let numberOfWords = acceptedWords.length
 let target = acceptedWords[Math.floor(Math.random() * numberOfWords)]
+let isDoubleLetter = false
 console.log(target)
 /*------------------------ Cached Element References ------------------------*/
 const keyboardLetterEl = document.querySelectorAll(".keyboardLetter")
@@ -545,6 +546,19 @@ function removeLetter(){
     render()
 }
 
+function checkDoubleLetter(){
+for (x = 0; x < guesses[currentRow].length; x++){
+        for (z = x + 1; z < guesses[currentRow].length; z++){
+            if (targetchar[x] === targetchar[z]){
+                isDoubleLetter = true
+                doubleLetterIndexOne = x
+                doubleLetterIndexTwo = z
+                return 
+            }
+        }
+    }
+}
+
 function checkGuess(){
     const targetchar = target.split('')
     const guess = guesses[currentRow]
@@ -560,6 +574,8 @@ function checkGuess(){
         document.getElementById('message').textContent = message
         return
     }
+    
+    checkDoubleLetter()
 
     for (let i = 0; i < targetchar.length; i++){
         const guessLetter = guess[i]
