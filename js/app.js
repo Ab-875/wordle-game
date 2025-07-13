@@ -490,16 +490,13 @@ const guesses = [
     ['','','','',''],
     ['','','','','']
 ]
-let test = target.split('')
-console.log(test)
-const wordsList = [
-
-]
 /*---------------------------- Variables (state) ----------------------------*/
 let currentRow = 0
 let winner = false
 let message = ''
-let target = l
+let numberOfWords = acceptedWords.length
+let target = acceptedWords[Math.floor(Math.random() * numberOfWords)]
+console.log(target)
 /*------------------------ Cached Element References ------------------------*/
 const keyboardLetterEl = document.querySelectorAll(".keyboardLetter")
 const deleteBtnEl = document.querySelector(".delete")
@@ -551,11 +548,19 @@ function removeLetter(){
 function checkGuess(){
     const targetchar = target.split('')
     const guess = guesses[currentRow]
+    const guessedWord = guesses[currentRow].join('')
     if (guess.includes('')){
         message = 'Fill out the entire row'
         document.getElementById('message').textContent = message
         return
     }
+
+    if (!acceptedWords.includes(guessedWord)){
+        message = 'Unaccepted word'
+        document.getElementById('message').textContent = message
+        return
+    }
+
     for (let i = 0; i < targetchar.length; i++){
         const guessLetter = guess[i]
         const correctLetter = targetchar[i]
@@ -639,6 +644,8 @@ function removeTutorial(){
 }
 
 function playAgain(){
+    target = acceptedWords[Math.floor(Math.random() * numberOfWords)]
+    console.log(target)
     currentRow = 0
     winner = false 
     for (let i = 0; i < guesses.length; i++){
