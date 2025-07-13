@@ -545,23 +545,6 @@ function removeLetter(){
     render()
 }
 
-function checkDoubleLetter(){
-    const targetchar = target.split('')
-    let isDoubleLetter = false
-    let doubleLetterIndexOne 
-    let doubleLetterIndexTwo
-    for (i = 0; i < guesses[currentRow].length; i++){
-        for (j = 0; j < guesses[currentRow].length; j++){
-            if (targetchar[i] === targetchar[j]){
-                isDoubleLetter = true
-                doubleLetterIndexOne = i
-                doubleLetterIndexTwo = j
-                return 
-            }
-        }
-    }
-}
-
 function checkGuess(){
     const targetchar = target.split('')
     const guess = guesses[currentRow]
