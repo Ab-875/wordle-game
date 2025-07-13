@@ -610,10 +610,10 @@ function handleKeyPress(event){
         addLetterKeyboard(keyLetter)
     }
 
-    else if (event.keyLetter === 'Backspace'){
+    else if (event.key === 'Backspace'){
         removeLetter()
     }
-    else if (event.keyLetter === 'Enter') {
+    else if (event.key === 'Enter') {
         checkGuess()
     }
 }
