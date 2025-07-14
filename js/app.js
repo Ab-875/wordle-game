@@ -16,7 +16,6 @@ let winner = false
 let message = ''
 let numberOfWords = acceptedWords.length
 let target = acceptedWords[Math.floor(Math.random() * numberOfWords)]
-let isDoubleLetter = false
 console.log(target)
 /*------------------------ Cached Element References ------------------------*/
 const keyboardLetterEl = document.querySelectorAll(".keyboardLetter")
@@ -64,19 +63,6 @@ function removeLetter(){
         }
     }
     render()
-}
-
-function checkDoubleLetter(){
-for (x = 0; x < guesses[currentRow].length; x++){
-        for (z = x + 1; z < guesses[currentRow].length; z++){
-            if (targetchar[x] === targetchar[z]){
-                isDoubleLetter = true
-                doubleLetterIndexOne = x
-                doubleLetterIndexTwo = z
-                return 
-            }
-        }
-    }
 }
 
 function checkGuess(){
@@ -172,10 +158,12 @@ function checkWinCondition(){
 
 function displayTutorial(){
     tutorialEl.classList.remove('hidden')
+    howBtnEl.classList.add('hidden')
 }
 
 function removeTutorial(){
     tutorialEl.classList.add('hidden')
+    howBtnEl.classList.remove('hidden')
 }
 
 function playAgain(){
@@ -197,6 +185,8 @@ function playAgain(){
     keyboardLetterEl.forEach(element => {
         element.classList.remove('correct-letter', 'present-letter', 'absent-letter')
     })
+    message = ''
+    document.getElementById('message').textContent = message
 }
 
 function render(){
