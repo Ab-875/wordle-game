@@ -16,6 +16,7 @@ let winner = false
 let message = ''
 let numberOfWords = acceptedWords.length
 let target = acceptedWords[Math.floor(Math.random() * numberOfWords)]
+let isDoubleLetter = false
 console.log(target)
 /*------------------------ Cached Element References ------------------------*/
 const keyboardLetterEl = document.querySelectorAll(".keyboardLetter")
@@ -80,8 +81,13 @@ function checkGuess(){
         document.getElementById('message').textContent = message
         return
     }
-    
 
+    const letterCount = {}
+    for (let character of targetchar){
+        letterCount[character] = (letterCount[character] || 0)+1
+    }
+    
+    //green check
     for (let i = 0; i < targetchar.length; i++){
         const guessLetter = guess[i]
         const correctLetter = targetchar[i]
@@ -94,30 +100,50 @@ function checkGuess(){
         const keyEl = document.querySelector(`.keyboardLetter[id="${guessLetter}"]`)
 
         if (guessLetter === correctLetter){
+
             boxEl.classList.add('correct-letter')
+            letterCount[guessLetter]--
+
             if(keyEl && !keyEl.classList.contains('correct-letter')){
             keyEl.classList.remove('present-letter','absent-letter')
             keyEl.classList.add('correct-letter')
             }
             console.log(`${guessLetter}: green`)
-        } else if (targetchar.includes(guessLetter)){
+        } 
+    }
+
+    //yellow and gray check
+    for (let i = 0; i <targetchar.length;i++){
+        const guessLetter = guess[i]
+        const correctLetter = targetchar[i]
+
+        const guessLetterId = `${currentRow}-${i}`
+        const boxEl = document.getElementById(guessLetterId)
+        const keyEl = document.querySelector(`.keyboardLetter[id="${guessLetter}"]`)
+
+        if (boxEl.classList.contains('correct-letter')) continue
+
+        if (targetchar.includes(guessLetter) && letterCount[guessLetter] > 0){
 
             boxEl.classList.add('present-letter')
+            letterCount[guessLetter]--
 
             if(keyEl && !keyEl.classList.contains('correct-letter') && !keyEl.classList.contains('present-letter')){
                 keyEl.classList.remove('absent-letter')
                 keyEl.classList.add('present-letter')
             }
-            boxEl.classList.remove()
             console.log(`${guessLetter}: yellow`)
         } else {
+
             boxEl.classList.add('absent-letter')
-            if(keyEl && !keyEl.classList.contains('correct-letter') && !keyEl.classList.contains('present-letter' && !keyEl.classList.contains('absent-letter'))){
+
+            if(keyEl && !keyEl.classList.contains('correct-letter') && !keyEl.classList.contains('present-letter') && !keyEl.classList.contains('absent-letter')){
                 keyEl.classList.add('absent-letter')
             }
             console.log(`${guessLetter}: absent`)
         }
-    }
+        }
+
     message = ''
     document.getElementById('message').textContent = message
     checkWinCondition()
