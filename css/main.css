@@ -17,6 +17,21 @@ body {
 
 #tutorial h2 {
     text-align: center;
+
+}
+
+#tutorial {
+    border: 3px solid rgb(88, 83, 83);
+    box-shadow: 10px 10px 9px 0px rgba(0,0,0,0.46);
+    -webkit-box-shadow: 10px 10px 9px 0px rgba(0,0,0,0.46);
+    -moz-box-shadow: 10px 10px 9px 0px rgba(0,0,0,0.46);
+    padding: 5px;
+}
+
+#close-tutorial {
+    margin-left: 46%;
+    padding: 3px;
+    border-radius: 5px;
 }
 
 .hidden {
