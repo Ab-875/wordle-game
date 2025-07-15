@@ -22,8 +22,6 @@ function init() {
     const keyboardLetterEl = document.querySelectorAll(".keyboardLetter")
     const deleteBtnEl = document.querySelector(".delete")
     const submitBtnEl = document.querySelector(".submit")
-    const howBtnEl = document.querySelector('.how-button')
-    const tutorialEl = document.getElementById('tutorial')
     const closeTutorialBtnEl = document.getElementById('close-tutorial')
     const resetBtnEl = document.getElementById('playAgain')
     /*-------------------------------- Functions --------------------------------*/
@@ -182,16 +180,6 @@ function init() {
         }
     }
 
-    function displayTutorial() {
-        tutorialEl.classList.remove('hidden')
-        howBtnEl.classList.add('hidden')
-    }
-
-    function removeTutorial() {
-        tutorialEl.classList.add('hidden')
-        howBtnEl.classList.remove('hidden')
-    }
-
     function playAgain() {
         target = acceptedWords[Math.floor(Math.random() * numberOfWords)]
         console.log(target)
@@ -232,7 +220,6 @@ function init() {
     submitBtnEl.addEventListener('click', checkGuess)
     document.addEventListener('keydown', handleKeyPress)
     resetBtnEl.addEventListener('click', playAgain)
-    howBtnEl.addEventListener('click', displayTutorial)
     closeTutorialBtnEl.addEventListener('click', removeTutorial)
 }
 
