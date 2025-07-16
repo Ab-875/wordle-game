@@ -22,6 +22,7 @@ function init() {
     const keyboardLetterEl = document.querySelectorAll(".keyboardLetter")
     const deleteBtnEl = document.querySelector(".delete")
     const submitBtnEl = document.querySelector(".submit")
+    const howBtnEl = document.querySelector('.how-button')
     const closeTutorialBtnEl = document.getElementById('close-tutorial')
     const resetBtnEl = document.getElementById('playAgain')
     /*-------------------------------- Functions --------------------------------*/
@@ -101,6 +102,7 @@ function init() {
 
                 boxEl.classList.add('correct-letter')
                 letterCount[guessLetter]--
+                console.log(boxEl)
 
                 if (keyEl && !keyEl.classList.contains('correct-letter')) {
                     keyEl.classList.remove('present-letter', 'absent-letter')
@@ -216,11 +218,16 @@ function init() {
         letterEl.addEventListener('click', () => addLetter(letterEl))
     });
 
+    howBtnEl.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+        }
+    });
+
     deleteBtnEl.addEventListener('click', removeLetter)
     submitBtnEl.addEventListener('click', checkGuess)
     document.addEventListener('keydown', handleKeyPress)
     resetBtnEl.addEventListener('click', playAgain)
-    closeTutorialBtnEl.addEventListener('click', removeTutorial)
 }
 
 
