@@ -25,7 +25,7 @@ Working on the game was a fun experience, understanding the logic of how every a
 
 
 ` 
-for (let i = 0; i < targetchar.length; i++) {
+    for (let i = 0; i < targetchar.length; i++) {
 
             const guessLetter = guess[i]
 
