@@ -4,13 +4,13 @@
 }
 
 h1 {
-    color: white;
+    color: black;
     margin-top: 10px;
     font-size: 50px;
 }
 
 body {
-    background-color: #494949;
+    background-color: #adadad;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,9 +22,9 @@ body {
 }
 
 .btn-primary.how-button {
-  background-color: #28a745 !important;  
-  border-color: #28a745 !important;
-  color: white !important;               
+  background-color: silver !important;  
+  border-color: black !important;
+  color: black !important;               
 }
 
 .guess-row {
@@ -34,7 +34,7 @@ body {
 }
 
 .guess-letter {
-    color: white;
+    color: black;
     height: 50px;
     width: 50px;
     border: 3px solid black;
@@ -48,6 +48,7 @@ body {
 .keyboardLetter,
 .delete,
 .submit {
+    color: black;
     display: inline-flex;
     justify-content: center;
     align-items: center;

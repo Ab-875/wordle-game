@@ -1,5 +1,7 @@
 # Project 1: 'Wordle' 
 
+![Image of the Wordle Page](/assets/wordle.jpg)
+
 ### Introduction
 
 If you're not familiar with wordle, it's a game where players have six attempts at guessing a five-letter. The logic of the game will be explained in more details below. I chose to do wordle since it's a game I enjoy playing in my spare time and was facinated with finding out how it fundamentally works
@@ -22,10 +24,13 @@ If you're not familiar with wordle, it's a game where players have six attempts 
 Working on the game was a fun experience, understanding the logic of how every action has a reaction and where to go from there helped me know how to structure the logic in my code as well. The game required a lot of checking statements since the base of the game is comparing and validating. Here is an example of one of the letter comparing functions that checks if the letter is correct and in the right position:
 
 
-` for (let i = 0; i < targetchar.length; i++) {
+` 
+for (let i = 0; i < targetchar.length; i++) {
+
             const guessLetter = guess[i]
+
             const correctLetter = targetchar[i]
-            
+
             const guessLetterId = `${currentRow}-${i}`
 
             const keyEl = document.querySelector(`.keyboardLetter[id="${guessLetter}"]`)
@@ -49,6 +54,12 @@ Working on the game was a fun experience, understanding the logic of how every a
             }
         }
         `
+
+Here is an example of what visual queues look like in the game:
+
+![color queues example](/assets/wordle-game-example.PNG)
+
+From there the players win condition is getting all tiles in a row to be green (guessing right word) or running out of all six attempts and losing 
 
 ### Word List
 
