@@ -24,21 +24,15 @@ If you're not familiar with wordle, it's a game where players have six attempts 
 Working on the game was a fun experience, understanding the logic of how every action has a reaction and where to go from there helped me know how to structure the logic in my code as well. The game required a lot of checking statements since the base of the game is comparing and validating. Here is an example of one of the letter comparing functions that checks if the letter is correct and in the right position:
 
 
-` 
+``` 
     for (let i = 0; i < targetchar.length; i++) {
-
             const guessLetter = guess[i]
-
             const correctLetter = targetchar[i]
-
             const guessLetterId = `${currentRow}-${i}`
-
             const keyEl = document.querySelector(`.keyboardLetter[id="${guessLetter}"]`)
             const boxEl = document.getElementById(guessLetterId)
 
-
             boxEl.classList.remove('correct-letter', 'present-letter', 'absent-letter')
-
 
             if (guessLetter === correctLetter) {
 
@@ -53,7 +47,7 @@ Working on the game was a fun experience, understanding the logic of how every a
                 console.log(`${guessLetter}: green`)
             }
         }
-        `
+```
 
 Here is an example of what visual queues look like in the game:
 
