@@ -33,7 +33,7 @@ function init() {
         for (let i = 0; i < guesses.length; i++) {
             if (guesses[currentRow][i] === '') {
                 guesses[currentRow][i] = letterEl.textContent
-                console.log(guesses[currentRow])
+                // console.log(guesses[currentRow])
                 break
             }
         }
@@ -47,7 +47,7 @@ function init() {
         for (let i = 0; i < guesses.length; i++) {
             if (guesses[currentRow][i] === '') {
                 guesses[currentRow][i] = keyLetter
-                console.log(guesses[currentRow])
+                // console.log(guesses[currentRow])
                 break
             }
         }
@@ -58,7 +58,7 @@ function init() {
         for (let i = guesses[currentRow].length - 1; i >= 0; i--) {
             if (guesses[currentRow][i] !== '') {
                 guesses[currentRow][i] = ''
-                console.log(guesses[currentRow])
+                // console.log(guesses[currentRow])
                 break
             }
         }
@@ -102,13 +102,13 @@ function init() {
 
                 boxEl.classList.add('correct-letter')
                 letterCount[guessLetter]--
-                console.log(boxEl)
+                // console.log(boxEl)
 
                 if (keyEl && !keyEl.classList.contains('correct-letter')) {
                     keyEl.classList.remove('present-letter', 'absent-letter')
                     keyEl.classList.add('correct-letter')
                 }
-                console.log(`${guessLetter}: green`)
+                // console.log(`${guessLetter}: green`)
             }
         }
 
@@ -132,7 +132,7 @@ function init() {
                     keyEl.classList.remove('absent-letter')
                     keyEl.classList.add('present-letter')
                 }
-                console.log(`${guessLetter}: yellow`)
+                // console.log(`${guessLetter}: yellow`)
             } else {
 
                 boxEl.classList.add('absent-letter')
@@ -140,7 +140,7 @@ function init() {
                 if (keyEl && !keyEl.classList.contains('correct-letter') && !keyEl.classList.contains('present-letter') && !keyEl.classList.contains('absent-letter')) {
                     keyEl.classList.add('absent-letter')
                 }
-                console.log(`${guessLetter}: absent`)
+                // console.log(`${guessLetter}: absent`)
             }
         }
 
@@ -172,19 +172,19 @@ function init() {
             message = `You guessed the word correctly! it took you ${currentRow + 1} attempts`
             document.getElementById('message').textContent = message
             winner = true
-            console.log(winner)
+            // console.log(winner)
         }
         if (currentRow === 5 && !winner) {
             message = `You ran out of attempts, the word was ${target}`
             document.getElementById('message').textContent = message
             winner = false
-            console.log(winner)
+            // console.log(winner)
         }
     }
 
     function playAgain() {
         target = acceptedWords[Math.floor(Math.random() * numberOfWords)]
-        console.log(target)
+        // console.log(target)
         currentRow = 0
         winner = false
         for (let i = 0; i < guesses.length; i++) {
@@ -192,7 +192,7 @@ function init() {
                 guesses[i][j] = ''
             }
         }
-        console.log(guesses)
+        // console.log(guesses)
         document.querySelectorAll('.guess-letter').forEach(element => {
             element.textContent = ''
             element.className = 'guess-letter'
