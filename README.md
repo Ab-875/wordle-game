@@ -17,7 +17,7 @@ If you're not familiar with wordle, it's a game where players have six attempts 
 
 - Instructions: As stated earlier your goal as a player is to guess a five-letter word in 6 attempts or less, after every guess the game gives you clues by displaying colored tiles showing if the letter is correct and is in the right position or completely absent.
 
-- play the game here
+- [play the game here](https://ab-875.github.io/wordle-game/)
 
 ### Development
 
