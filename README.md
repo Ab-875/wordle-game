@@ -59,6 +59,20 @@ From there the players win condition is getting all tiles in a row to be green (
 
 Generally speaking I included 480 accepted words, and to make it easier I made sure they are gramatically easy words that are commonly used to teach children and as a whole English beginner friendly 
 
+### References
+
+- Bootstrap CSS 
+    - [CSS Modal](https://getbootstrap.com/docs/4.0/components/modal/) 
+
+- Bootstrap JavaScript
+    - [JS Bootstrap](https://getbootstrap.com/docs/3.4/javascript/)
+
+### Next Step
+
+- Add Dark Mode
+- A 6 or more letter words gamemode
+- Expand word list to cover more user inputs
+
 ### Conclusion
 
 After finishing this project I had a chance to reflect on what I learned and applied as well as achieving my initial goal of better understanding how the logic of wordle works. I would say this was a fun experience and a useful one as well.
