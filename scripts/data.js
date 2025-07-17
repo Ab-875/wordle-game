@@ -224,6 +224,7 @@ export const acceptedWords = [
     'MIGHT',
     'NOISE',
     'LABEL',
+    'SAYED',
     'LOGIC',
     'MINOR',
     'NORTH',
