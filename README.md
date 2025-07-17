@@ -59,7 +59,7 @@ From there the players win condition is getting all tiles in a row to be green (
 
 Generally speaking I included 480 accepted words, and to make it easier I made sure they are gramatically easy words that are commonly used to teach children and as a whole English beginner friendly 
 
-### References
+### Attributions
 
 - Bootstrap CSS 
     - [CSS Modal](https://getbootstrap.com/docs/4.0/components/modal/) 
